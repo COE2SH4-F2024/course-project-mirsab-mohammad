@@ -1,6 +1,6 @@
 #include "objPos.h"
-
-objPos::objPos()
+//^Default (1/4)
+objPos::objPos() 
 {
     pos = new Pos;
     pos->x = 0;
@@ -18,6 +18,25 @@ objPos::objPos(int xPos, int yPos, char sym)
 
 // Respect the rule of six / minimum four
 // [TODO] Implement the missing special member functions to meet the minimum four rule
+
+/*
+^ adding a whole lot of stuff in this section (iteration 0)
+^Gonna add a copy Constructor Function, a copy AO function, I could also add a move constructor and assignment (iirc course said it's beyond this class?)
+^gonna double check since I learned how to anyways. leaving larger comments block to make note of comign back in case of memory issue.
+*/
+
+//^copy constructors 2nd (2/4)
+objPos::objPos(const objPos& other){
+    pos = new Pos;
+    pos->x = other.pos->x;
+    pos->y = other.pos->y;
+    symbol=other.symbol;
+}
+
+//^now the copy assignment (4/4)
+objPos& objPos::operator=(const objpos& other){
+    if (this == &other)
+}
 
 
 

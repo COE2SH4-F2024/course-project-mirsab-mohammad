@@ -14,11 +14,25 @@ class objPos
         Pos* pos;        
         char symbol;
 
-        objPos();
-        objPos(int xPos, int yPos, char sym);
+        objPos(); //^ this is the def constructor
+        objPos(int xPos, int yPos, char sym); //^param
+        
+
+        //^R4/6 --> I need copy construct and copy assingment also destructor too
         
         // Respect the rule of six / minimum four
         // [TODO] Implement the missing special member functions to meet the minimum four rule
+        objPos(const objPos& other); //^copy c
+        objPos& operator = (const objPos& other); //^copy assign
+        ~objPos(); // ^destructor 
+        
+
+        /*
+        ^this stuff makes no sense literally following the TODO and what lecture said 
+    
+        */
+        
+
         
         void setObjPos(objPos o);        
         void setObjPos(int xPos, int yPos, char sym);  

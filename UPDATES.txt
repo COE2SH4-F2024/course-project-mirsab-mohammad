@@ -1,0 +1,45 @@
+LEAVING THIS HERE SO WE CAN MAKE SEPERATE NOTES FOR EACHOTHER WITHOUT BOMBARING OUR CODE WITH COMMENTS (LEAVE UPDATES FOR EACHOTHER HERE)
+
+Gonna make my own little schedule that I'd like for us to follow but we ball, this issome stuff we need to do:
+
+     Phase 1
+    -Developer 1: Setting up game mechanisms: input system, game condition system, score system.
+    -Developer 2: Implementing player object phase 1 – FSM transplant from PPA3, single segment movement validation after OOD refactoring.
+
+    I'll deal with implementing play object and stuff. I'll also move over all the PPA3 stuff today as well
+
+    You should get all the game mechanisms up (IO, condition, score, etc.) SPEND SOME TIME READING THRU MANUAL | WATCHING VIDEO | UNDERSTANDING THE SKELETON CODE IT LOWKEY HELPS
+
+
+    In general ITERATION 1A is done by me (all the ppa refactoring for the player class, flipped from dev roles ik...)  ---> I'll get the player moving around by porting the FSM into player class (player class still has some stuff to do not full implementation)
+
+    and ITERATION 2A is done by you (you refactor all the game mechanisms from ppa3 and 2) ---> You'll get the board working (baord size, input parameters, exit and clean up routines (REALLY IMPORTANT TO FREE MEMORY DURING CLEANUP))
+
+    Also this is different from last years project
+
+ ===========================================================================================================================================================================================================================
+
+
+
+    TIMELINE:   nov30th - iteration 1 (iteration 2 started as well at least a little) 
+                EARLY dec 1st - iteration 2 (we should call at night and start iteration 3 at this point) ***IF WE COULD FINISH IT THAT'D BE GREAT?
+                dec 2nd - finish everything up, if we have time we can work on bonus.
+
+
+    ===========================================================================================================================================================================================================================
+
+    GOAL: iteration 1 finished BEFORE saturday night (Start iteration 2 during SAT night):
+    Result: Basically just ppa2 working again lmao
+
+    ||| LEAVE ANY UPDATES FOR THIS SECTION OF THE ITERATIONS UNDERNEATH HERE - MARK EM BY DATE/TIME AND ANY IMPORTANT INFORMATION WE NEED TO COMMUNICATE WITH ONE ANOTHER |||
+    *keep git commits messages concise with file/progress, and more indepth explanation here (don't spend alot of time trying to explain it if someone is confsued as long as it works)
+
+
+
+    Nov29th (2pm) - Iteration 0 COMPLETE (READ THIS)
+    Look at objpos.h and .c     I just added the TODO section (making sure we follow rule of 4). Make sure you understand all the skeleton code b4 you code or else you'll be lost.
+    Git Pull every time you work on the project too and look here first for any updates. ALWAYS GIT COMMIT AND PUSH even small changes.
+    I also use an extension called Colorful Comments (https://marketplace.visualstudio.com/items?itemName=ParthR2031.colorful-comments). I use the ^ before the comment line to make my comments yellow so 
+    you can download it too if u want or just ignore any signs you see infront of the comments that I've left. 
+
+    also add your info to the README file.
