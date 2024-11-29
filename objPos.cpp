@@ -33,9 +33,25 @@ objPos::objPos(const objPos& other){
     symbol=other.symbol;
 }
 
-//^now the copy assignment (4/4)
+//^now the copy assignment (3/4)
 objPos& objPos::operator=(const objpos& other){
-    if (this == &other)
+    if (this == &other) return *this;
+
+    delete pos;
+
+    pos = new Pos;
+    pos->x = other.pos->x;
+    pos->y = other.pos->y;
+    symbol = other.symbol;
+    //^ DEEP COPY
+
+    return *this;
+}
+
+
+//^ LASTLY is the destrucor (4/4)
+objPos::~objPos(){
+    delete pos;
 }
 
 

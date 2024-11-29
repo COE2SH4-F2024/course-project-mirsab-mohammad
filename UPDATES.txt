@@ -17,6 +17,17 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
 
     Also this is different from last years project
 
+
+    generally every time you pull and PUSH
+    
+
+    Pull
+        Read any updates here
+    
+    PUSH   
+        Make sure it is compilabale so we aren't pushing unfinished code (comment out stuff if it isn't working for you to come back to it)
+
+
  ===========================================================================================================================================================================================================================
 
 
