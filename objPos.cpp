@@ -34,7 +34,7 @@ objPos::objPos(const objPos& other){
 }
 
 //^now the copy assignment (3/4)
-objPos& objPos::operator=(const objpos& other){
+objPos& objPos::operator=(const objPos& other){
     if (this == &other) return *this;
 
     delete pos;
