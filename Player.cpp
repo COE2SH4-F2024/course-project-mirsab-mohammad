@@ -92,6 +92,7 @@ void Player::movePlayer()
         break;
         case Dir::RIGHT:
         x +=1;
+        break;
         case Dir::STOP:
         default:
         return;

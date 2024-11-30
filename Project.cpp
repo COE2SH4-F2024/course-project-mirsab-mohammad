@@ -70,6 +70,12 @@ void GetInput(void)
 void RunLogic(void)
 {
     
+    player -> updatePlayerDir();
+
+    player-> movePlayer();
+
+
+
 }
 
 void DrawScreen(void)
