@@ -15,8 +15,17 @@ Player::Player(GameMechs* thisGMRef)
     myDir = STOP;
 
     // more actions to be included
-    playerPos.setObjPos(0,0,'*');
-    //^for nowing setting up my player
+    int boardWid = mainGameMechsRef->getBoardSizeX();
+    int boardHei = mainGameMechsRef->getBoardSizeY();
+
+    int starting_pos_x = boardWid/2;
+    int starting_pos_y = boardHei/2;
+
+    playerPos.setObjPos(starting_pos_x,starting_pos_y,'*');
+
+
+
+
 }
 
 
