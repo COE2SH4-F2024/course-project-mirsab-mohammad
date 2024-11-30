@@ -38,19 +38,17 @@ bool GameMechs::getLoseFlagStatus() const
 }
     
 
-char GameMechs::getInput() const
+char GameMechs::getInput() 
+
 {
-    if (MacUILib_haschar()) {
-        input = MacUILib_getchar();
-        switch(input) {
-            case 35:  // '#' symbol
-                setExitTrue();
-                break;
-            default:
-                break;
-        }
-    }
-    return input; // Ensure return in all cases
+    if(MacUILib_hasChar()) {
+        input = MacUILib_getChar();
+
+    // # to exit
+    } else if(input == 35){  
+        setExitTrue();
+    } 
+    return input;
 }
 
 int GameMechs::getScore() const

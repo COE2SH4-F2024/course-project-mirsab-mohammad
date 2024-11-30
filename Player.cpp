@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "MacUILib.h"
+#include "GameMechs.h"
 
 /*
 ^adding this for myself (mirsab)
