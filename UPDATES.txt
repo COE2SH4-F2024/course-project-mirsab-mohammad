@@ -58,6 +58,6 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
 
     nov 29th (9pm) - Iteration 1A complete player.cpp and .h files are completed (to the extent of iteration 1A).
 
-    nov 29th (10PM) - Iteration 2b completish (Passed test cases I'm not sure about actual implementation though)
+    nov 29th (10PM) - Iteration 2A completish (Passed test cases I'm not sure about actual implementation though)
 
     
