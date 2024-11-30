@@ -1,5 +1,101 @@
 #include "objPosArrayList.h"
+#include <iostream>
 
-// Paste your Tested implementation here.
-// Paste your Tested implementation here.
-// Paste your Tested implementation here.
+// Check lecture contents on general purpose array list construction, 
+// and modify it to support objPos array list construction.
+
+/*
+^leaving this big chunk here this is all test and I have test cases so I can confirm then copy paste into actual project
+^the manual is my best friend here the visuals help a lot, refger to any of ur diagrams too on your ipad and stuff
+^ALSO READ THROUGH THE SKELETON CODE AND UNDERSTAND YOUR VARIABLES AND WHAT NOT SO YOU DON'T ALT TABB ALL THE TIME
+*/
+
+
+
+//^ CONSTRUCTOR (under comment)
+objPosArrayList::objPosArrayList()
+{
+    arrayCapacity = ARRAY_MAX_CAP; //Make big
+    aList = new objPos[arrayCapacity]; //allocation (copy)
+    listSize = 0; //initilize all 0's
+}
+
+
+//^ Destructor
+objPosArrayList::~objPosArrayList()
+{
+delete[] aList; //^ FREE MA BOI
+
+}
+
+int objPosArrayList::getSize() const
+{
+return listSize;
+//^freebie
+}
+
+void objPosArrayList::insertHead(objPos thisPos)
+{
+ if (listSize >= arrayCapacity){
+    std::cout << "Error with max capacity (array list)"; //^this is just an error check to make sure I don't go above the array capacity
+    return;
+ }
+ for (int i = listSize; i > 0; i--){
+    aList[i] = aList[i-1];
+ }   
+
+ //^literally shifting things over for head room
+
+aList[0] = thisPos;
+listSize++;
+
+// filling tin the last section the for loop doesent (> 0 and all dat)
+}
+
+void objPosArrayList::insertTail(objPos thisPos)
+{
+    if (listSize >= arrayCapacity){
+      std::cout << "error with max capcaity (array list)"; //^ more error checkign in case I screw up
+      return;
+    }
+
+    aList[listSize] = thisPos; //^put it in tails location
+    listSize++;
+}
+
+void objPosArrayList::removeHead()
+{
+    if (listSize == 0){
+      std::cout << "moe error array list be empty"; //^ error check for me again.
+      return;
+    }
+    for (int i = 0; i < listSize -1; i++){
+      aList[i] = aList[i+1];
+    }
+    listSize--;
+}
+//^nearly exact opposite of insert head, move things other way in array and decrement.
+
+void objPosArrayList::removeTail()
+{
+    if (listSize == 0){
+      std::cout << "error lsit be empty";
+      return;
+    }
+   listSize--;
+}
+
+objPos objPosArrayList::getHeadElement() const
+{
+    return aList[0];
+}
+
+objPos objPosArrayList::getTailElement() const
+{
+    return aList[listSize-1];
+}
+
+objPos objPosArrayList::getElement(int index) const
+{
+    return aList[index];
+}
