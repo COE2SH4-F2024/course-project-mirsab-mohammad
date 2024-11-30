@@ -45,7 +45,7 @@ void objPosArrayList::insertHead(objPos thisPos)
 
  //^literally just making the the head (everything follows it so start at i and increment down *the body* of the snake)
 
-aList[0] = thisPos
+aList[0] = thisPos;
 listSize++;
 
 //^ after we 
