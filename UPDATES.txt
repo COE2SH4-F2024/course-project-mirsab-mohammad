@@ -54,3 +54,8 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
     you can download it too if u want or just ignore any signs you see infront of the comments that I've left. 
 
     also add your info to the README file.
+
+
+    nov 29th (9pm) - Iteration 1A complete player.cpp and .h files are completed (to the extent of iteration 1A).
+
+    
