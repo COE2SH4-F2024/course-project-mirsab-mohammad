@@ -19,8 +19,11 @@ class GameMechs
 
         int boardSizeX;
         int boardSizeY;
+    
 
         objPos food;
+
+        char borderCharacter;
 
     public:
         GameMechs();
@@ -43,6 +46,10 @@ class GameMechs
         void incrementScore();
         
         // More methods should be added here
+
+        char getBorderCharacter() const; // getter
+        void setBorderCharacter(char c); // setter for it
+        //^ADDED A COUPEL TO MAKE DRAW SCREEN MORE MODULE
 };
 
 #endif

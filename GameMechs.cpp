@@ -9,6 +9,7 @@ GameMechs::GameMechs()
     score = 0;
     boardSizeY = 15;
     boardSizeX = 30;
+    borderCharacter = '#';
 }
 
 GameMechs::GameMechs(int boardX, int boardY)
@@ -19,6 +20,7 @@ GameMechs::GameMechs(int boardX, int boardY)
     score = 0;
     boardSizeX = boardX;
     boardSizeY = boardY;
+    borderCharacter = '#';
 }
 
 // do you need a destructor?
@@ -93,3 +95,11 @@ void GameMechs::clearInput()
 }
 
 // More methods should be added here
+
+char GameMechs::getBorderCharacter() const {
+    return borderCharacter;
+}
+
+void GameMechs::setBorderCharacter(char c) {
+    borderCharacter = c;
+}
