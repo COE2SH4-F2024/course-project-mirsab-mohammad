@@ -9,7 +9,6 @@ GameMechs::GameMechs()
     score = 0;
     boardSizeY = 15;
     boardSizeX = 30;
-    foodPos.setObjPos(-1,-1,'o');
 }
 
 GameMechs::GameMechs(int boardX, int boardY)
@@ -20,7 +19,6 @@ GameMechs::GameMechs(int boardX, int boardY)
     score = 0;
     boardSizeX = boardX;
     boardSizeY = boardY;
-    foodPos.setObjPos(-1,-1,'o');
 }
 
 // do you need a destructor?
@@ -95,42 +93,3 @@ void GameMechs::clearInput()
 }
 
 // More methods should be added here
-
-void GameMechs::generateFood(objPos blockOff)
-{
-
-     int x = 0;
-     int y = 0;
-     bool var = true;
-
-
-    objPosArrayList* playerPosList= new objPosArrayList();
-
-    while(var) {
-        x = rand() % (getBoardSizeX() - 2) + 1;
-        y = rand() % (getBoardSizeY() - 2) + 1;
-
-        foodPos.x = x;
-        foodPos.y = y;
-
-        if (foodPos.x== (boardSizeX - 1 ) || foodPos.y == (boardSizeY - 1)) {
-            continue;
-        }
-
-        for (int i; i < playerPosList -> getSize(); i++) {
-            objPos tempPos;
-            playerPosList -> getElement(tempPos, i);
-            if (foodPos.y == tempPos.y && foodPos.x == tempPos.x) {
-                continue;
-            }
-        }
-
-        break;
-    }
-    delete playerPosList;
-}
-
-objPos GameMechs::getFoodPos() const
-{
-    return foodPos;
-}

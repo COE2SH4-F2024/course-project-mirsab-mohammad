@@ -19,8 +19,11 @@ class GameMechs
 
         int boardSizeX;
         int boardSizeY;
+    
 
         objPos foodPos;
+
+        char borderCharacter;
 
     public:
         GameMechs();
@@ -44,8 +47,14 @@ class GameMechs
         
         // More methods should be added here
 
+<<<<<<< HEAD
         void generateFood(objPos blockOff);
         objPos getFoodPos();
+=======
+        char getBorderCharacter() const; // getter
+        void setBorderCharacter(char c); // setter for it
+        //^ADDED A COUPEL TO MAKE DRAW SCREEN MORE MODULE
+>>>>>>> 1ae6bd396d44ee186850493062aa387c465833d9
 };
 
 #endif

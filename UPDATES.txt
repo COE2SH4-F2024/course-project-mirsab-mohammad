@@ -51,13 +51,17 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
     Look at objpos.h and .c     I just added the TODO section (making sure we follow rule of 4). Make sure you understand all the skeleton code b4 you code or else you'll be lost.
     Git Pull every time you work on the project too and look here first for any updates. ALWAYS GIT COMMIT AND PUSH even small changes.
     I also use an extension called Colorful Comments (https://marketplace.visualstudio.com/items?itemName=ParthR2031.colorful-comments). I use the ^ before the comment line to make my comments yellow so 
-    you can download it too if u want or just ignore any signs you see infront of the comments that I've left. 
+    you can download it too if u want or just ignore any signs you see infront of the comments that I've left. (Mirsab)
 
-    also add your info to the README file.
+    also add your info to the README file. (mirsab)
 
 
-    nov 29th (9pm) - Iteration 1A complete player.cpp and .h files are completed (to the extent of iteration 1A).
+    nov 29th (9pm) - Iteration 1A complete player.cpp and .h files are completed (to the extent of iteration 1A). (mirsab)
 
-    nov 29th (10PM) - Iteration 2b completish (Passed test cases I'm not sure about actual implementation though)
+    nov 29th (10PM) - Iteration 2A completish (Passed test cases I'm not sure about actual implementation though) (mrisab)
+
+    nov 20th (1pm) - finished the draw screen function, we now have borders and a player, I also added a smal lsection to GAMEMECH for border logic.
+                    also wrapped up 2A working good now, so I copied it over to course-project code.
+                    please try and finish iteration 2 before
 
     
