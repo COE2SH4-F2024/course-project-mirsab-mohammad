@@ -60,8 +60,11 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
 
     nov 29th (10PM) - Iteration 2A completish (Passed test cases I'm not sure about actual implementation though) (mrisab)
 
-    nov 20th (1pm) - finished the draw screen function, we now have borders and a player, I also added a smal lsection to GAMEMECH for border logic.
+    nov 30th (1pm) - finished the draw screen function, we now have borders and a player, I also added a smal lsection to GAMEMECH for border logic.
                     also wrapped up 2A working good now, so I copied it over to course-project code.
                     please try and finish iteration 2 before
 
+
+    nov 30th (midnight) - I fixed al lthe stuff you did too so its compiling, I added the generate food to main file, still minor issue with it actualy randomly generating and the movement which I'll fix tmmrw.
+                        - you should continue into last iteration and I'll work on fixing everything we have so far
     

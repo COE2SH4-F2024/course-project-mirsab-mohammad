@@ -34,7 +34,7 @@ int main(void)
 
     Initialize();
 
-    while(exitFlag == false)  
+    while(!gameMechs->getExitFlagStatus())  
     {
         GetInput();
         RunLogic();
@@ -59,12 +59,24 @@ void Initialize(void)
     gameMechs = new GameMechs(30,15); 
     player = new Player(gameMechs);
 
-    exitFlag = false;
+    gameMechs->generateFood(player->getPlayerPos());
+
+
+
+
 }
 
 void GetInput(void)
 {
-   
+   if (MacUILib_hasChar()){
+    char input = MacUILib_getChar();
+    if (input == '\n' || input == '\r'){
+        gameMechs->setExitTrue();
+    }
+    else{
+        gameMechs->setInput(input);
+    }
+   }
 }
 
 void RunLogic(void)
@@ -74,6 +86,10 @@ void RunLogic(void)
 
     player-> movePlayer();
 
+    char input = gameMechs->getInput();
+    if (input != 0){
+        gameMechs->clearInput();
+    }
 
 
 }
@@ -95,12 +111,18 @@ void DrawScreen(void)
             else if (row == player->getPlayerPos().pos->y && column == player->getPlayerPos().pos->x) {
                 MacUILib_printf("%c", player->getPlayerPos().getSymbol());
             }
+
+            else if (row == gameMechs->getFoodPos().pos->y && column == gameMechs->getFoodPos().pos->x){
+                MacUILib_printf("%c", gameMechs->getFoodPos().getSymbol());
+            }
             else {
                 MacUILib_printf(" ");
             }
         }
         MacUILib_printf("\n"); 
     }
+
+    printf("Click enter to exit");
 
 }
 

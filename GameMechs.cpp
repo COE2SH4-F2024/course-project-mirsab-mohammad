@@ -10,6 +10,7 @@ GameMechs::GameMechs()
     boardSizeY = 15;
     boardSizeX = 30;
     foodPos.setObjPos(-1,-1,'o');
+    playerPosList = new objPosArrayList();
 }
 
 GameMechs::GameMechs(int boardX, int boardY)
@@ -26,7 +27,8 @@ GameMechs::GameMechs(int boardX, int boardY)
 // do you need a destructor?
 GameMechs::~GameMechs()
 {
-    
+    delete playerPosList;
+    playerPosList = nullptr;
 }
 
 bool GameMechs::getExitFlagStatus() const
@@ -104,30 +106,33 @@ void GameMechs::generateFood(objPos blockOff)
      bool var = true;
 
 
-    objPosArrayList* playerPosList= new objPosArrayList();
-
     while(var) {
         x = rand() % (getBoardSizeX() - 2) + 1;
         y = rand() % (getBoardSizeY() - 2) + 1;
 
-        foodPos.x = x;
-        foodPos.y = y;
+        foodPos.pos->x = x;
+        foodPos.pos->y = y;
 
-        if (foodPos.x== (boardSizeX - 1 ) || foodPos.y == (boardSizeY - 1)) {
+        if (foodPos.pos->x== (blockOff.pos->x) && foodPos.pos->y == (blockOff.pos->y)) {
             continue;
         }
 
-        for (int i; i < playerPosList -> getSize(); i++) {
-            objPos tempPos;
-            playerPosList -> getElement(tempPos, i);
-            if (foodPos.y == tempPos.y && foodPos.x == tempPos.x) {
-                continue;
+        bool CHECKER = false;
+        if(playerPosList != nullptr)
+        for (int i = 0; i < playerPosList->getSize(); i++) {
+            objPos tempPos = playerPosList->getElement(i);
+            if (foodPos.pos->y == tempPos.pos->y && foodPos.pos->x == tempPos.pos->x) {
+                CHECKER = true;
+                break;
             }
         }
+        
 
-        break;
+        if (!CHECKER){
+            break;
+        }
+
     }
-    delete playerPosList;
 }
 
 objPos GameMechs::getFoodPos() const
