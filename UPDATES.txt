@@ -62,9 +62,12 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
 
     nov 30th (1pm) - finished the draw screen function, we now have borders and a player, I also added a smal lsection to GAMEMECH for border logic.
                     also wrapped up 2A working good now, so I copied it over to course-project code.
-                    please try and finish iteration 2 before
+                    please try and finish iteration 2 before (mirsab)
 
 
     nov 30th (midnight) - I fixed al lthe stuff you did too so its compiling, I added the generate food to main file, still minor issue with it actualy randomly generating and the movement which I'll fix tmmrw.
-                        - you should continue into last iteration and I'll work on fixing everything we have so far
+                        - you should continue into last iteration and I'll work on fixing everything we have so far (mirsab)
+
+    dec1st (1pm) - I fixed the small issues with the food gen and the directions. PLEASE GO THROUGH THAT TOO I MADE SOME CHANGES I DON'T THINK WE LEARNED IN class
+                    I used some code from an old project of mine that used similar random logic, I only fixxed ur syntax errors adn that small section on top, I also added the const back cuz we need it for a deep copy. (mirsab)
     

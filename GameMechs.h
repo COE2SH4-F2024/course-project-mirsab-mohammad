@@ -50,7 +50,7 @@ class GameMechs
         // More methods should be added here
 
 //<<<<<<< HEAD
-        void generateFood(objPos blockOff);
+        void generateFood(const objPos blockOff);
         objPos getFoodPos() const;
 
         char getBorderCharacter() const; // getter

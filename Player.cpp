@@ -50,16 +50,16 @@ void Player::updatePlayerDir()
 
         //^ just translate c --> c++ not too bad just hope I don't miss anything cuz my ppa3 is a mess, check each one making sure we aint going backwards and go that direction
 
-        if (input == 'w'  || input == 'W' && myDir!= Dir::DOWN){
+        if ((input == 'w'  || input == 'W') && myDir!= Dir::DOWN){
             myDir = Dir::UP;
         }
-        else if (input == 's' || input =='S' && myDir != Dir::UP){
+        else if ((input == 's' || input =='S') && myDir != Dir::UP){
             myDir = Dir::DOWN;
         }
-        else if (input == 'a' || input =='A' && myDir != Dir::RIGHT){
+        else if ((input == 'a' || input =='A') && myDir != Dir::RIGHT){
             myDir = Dir::LEFT;
         }
-        else if (input == 'd' || input =='D' && myDir != Dir::LEFT){
+        else if ((input == 'd' || input =='D') && myDir != Dir::LEFT){
             myDir = Dir::RIGHT;
         }
 

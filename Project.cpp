@@ -48,7 +48,8 @@ int main(void)
 
 
 void Initialize(void)
-{
+{   
+    srand(static_cast<unsigned int>(time(nullptr)));
 
 
 
@@ -68,11 +69,18 @@ void Initialize(void)
 
 void GetInput(void)
 {
-   if (MacUILib_hasChar()){
+    if (MacUILib_hasChar()){
     char input = MacUILib_getChar();
+
     if (input == '\n' || input == '\r'){
         gameMechs->setExitTrue();
     }
+
+    else if (input == 'f'){
+        gameMechs->generateFood(player->getPlayerPos()); //^debug check. click f to respawn the food
+    }
+
+
     else{
         gameMechs->setInput(input);
     }
@@ -104,22 +112,26 @@ void DrawScreen(void)
 
    
     for (int row = 0; row < sizeY; row++) {
+
         for (int column = 0; column < sizeX; column++) {
-            if (row == 0 || column == 0 || row == sizeY - 1 || column == sizeX - 1) {
+
+            if (row == 0 || column == 0 || row == sizeY - 1 || column == sizeX - 1) { //^check for borders
                 MacUILib_printf("#");
             }
-            else if (row == player->getPlayerPos().pos->y && column == player->getPlayerPos().pos->x) {
+
+            else if (row == player->getPlayerPos().pos->y && column == player->getPlayerPos().pos->x) { //^Check for player coords
                 MacUILib_printf("%c", player->getPlayerPos().getSymbol());
             }
 
-            else if (row == gameMechs->getFoodPos().pos->y && column == gameMechs->getFoodPos().pos->x){
+            else if (row == gameMechs->getFoodPos().pos->y && column == gameMechs->getFoodPos().pos->x){ //^check for food coords
                 MacUILib_printf("%c", gameMechs->getFoodPos().getSymbol());
             }
+
             else {
-                MacUILib_printf(" ");
+                MacUILib_printf(" "); //^everything else is blank
             }
         }
-        MacUILib_printf("\n"); 
+        MacUILib_printf("\n");  //^repeat
     }
 
     printf("Click enter to exit");

@@ -21,7 +21,8 @@ GameMechs::GameMechs(int boardX, int boardY)
     score = 0;
     boardSizeX = boardX;
     boardSizeY = boardY;
-    foodPos.setObjPos(-1,-1,'o');
+    foodPos.setObjPos(-1, -1, 'o');
+    playerPosList = new objPosArrayList();
 }
 
 // do you need a destructor?
@@ -98,42 +99,46 @@ void GameMechs::clearInput()
 
 // More methods should be added here
 
-void GameMechs::generateFood(objPos blockOff)
+void GameMechs::generateFood(const objPos blockOff)
 {
+
+    static bool seeded = false;
+    if (!seeded){
+        srand(static_cast<unsigned int>(time(nullptr)));
+        seeded = true;
+    }
+    //^ took this from a previous project I've done in the past, little extra tbh, just makes it so the random function isn't run all the time and the time functin returns a time in seconds. lemme know if you need me to explain it to ya
 
      int x = 0;
      int y = 0;
-     bool var = true;
+     bool checker = false;
 
 
-    while(var) {
+    while(!checker) {
         x = rand() % (getBoardSizeX() - 2) + 1;
         y = rand() % (getBoardSizeY() - 2) + 1;
 
-        foodPos.pos->x = x;
-        foodPos.pos->y = y;
-
-        if (foodPos.pos->x== (blockOff.pos->x) && foodPos.pos->y == (blockOff.pos->y)) {
+        if (foodPos.pos->x == blockOff.pos->x && foodPos.pos->y == blockOff.pos->y) {
             continue;
         }
 
-        bool CHECKER = false;
-        if(playerPosList != nullptr)
+        checker = true;
         for (int i = 0; i < playerPosList->getSize(); i++) {
             objPos tempPos = playerPosList->getElement(i);
-            if (foodPos.pos->y == tempPos.pos->y && foodPos.pos->x == tempPos.pos->x) {
-                CHECKER = true;
+            if (tempPos.pos->x == x && tempPos.pos->y == y){
+                checker = false;
                 break;
             }
         }
-        
-
-        if (!CHECKER){
-            break;
-        }
 
     }
+    foodPos.setObjPos(x,y,'o');
 }
+
+
+//^leaving a comment if come here Mohammed
+//^I had to change a few things most of the logic is what you wrote but we didnt need a const do a deep copy, I was crashing without it cuz that was a shallow copy.
+//^also the random stuff wasen't working so I added a little check at the top of the generateFood Function.
 
 objPos GameMechs::getFoodPos() const
 {
