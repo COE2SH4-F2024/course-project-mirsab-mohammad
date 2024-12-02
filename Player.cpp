@@ -45,6 +45,7 @@ Player::~Player()
 
     // there is now lil bro
     delete playerPosList;
+    delete foodPosList;
 }
 //was objpos
 objPosArrayList* Player::getPlayerPos() const
