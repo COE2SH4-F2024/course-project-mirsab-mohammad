@@ -11,5 +11,7 @@ Team Information
 Member 1 MacID: [arifm21]
 Member 1 StudentID: [400502908]
 
+Section: [L07]
+
 Member 2 MacID: [hadim4]
 Member 2 StudentID: [400383319]
