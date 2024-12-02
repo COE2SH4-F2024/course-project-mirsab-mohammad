@@ -3,7 +3,6 @@
 #include "objPos.h"
 #include "GameMechs.h"
 #include "Player.h"
-#include <windows.h> //*adding this one just cuz the you lose message was a little glitchy (we wouldn't lose marks since it makes up what was on rubric) so this should be fine.
 
 
 using namespace std;
@@ -102,8 +101,8 @@ void RunLogic(void)
     }
     if(gameMechs->getLoseFlagStatus()){                                 //*if the lsoe flag status tru
         MacUILib_clearScreen();
-        MacUILib_printf("YOU LOSE!\nExiting in 3 seconds");
-        Sleep(3000);
+        MacUILib_printf("YOU LOSE!\nClick Enter again to shutdown.");
+        getchar();
         gameMechs->setExitTrue();                                       //*leave
     }
 
