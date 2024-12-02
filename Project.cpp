@@ -101,6 +101,9 @@ void RunLogic(void)
 
     }
     if(gameMechs->getLoseFlagStatus()){                                 //*if the lsoe flag status tru
+        MacUILib_clearScreen();
+        MacUILib_printf("YOU LOSE!\nClick Enter To Exit");
+        getchar();
         gameMechs->setExitTrue();                                       //*leave
     }
 
