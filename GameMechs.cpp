@@ -144,3 +144,12 @@ objPos GameMechs::getFoodPos() const
 {
     return foodPos;
 }
+
+
+void GameMechs::setGrowthFlag(){
+    growthFlag = true;
+}
+
+void GameMechs::getGrowthFlag()const{
+    return growthFlag;
+}

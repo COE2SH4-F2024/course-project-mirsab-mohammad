@@ -27,6 +27,8 @@ class GameMechs
 
         objPosArrayList* playerPosList;
 
+        bool growthFlag;
+
     public:
         GameMechs();
         GameMechs(int boardX, int boardY);
@@ -57,6 +59,11 @@ class GameMechs
         void setBorderCharacter(char c); // setter for it
         //^ADDED A COUPEL TO MAKE DRAW SCREEN MORE MODULE
 //>>>>>>> 1ae6bd396d44ee186850493062aa387c465833d9
+
+
+        void setGrowthFlag();
+        void getGrowthFlag() const;
+        //^ setter and getter methods for grwoth flag (how we trackin growth?)
 
 
 

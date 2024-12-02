@@ -26,7 +26,7 @@ Player::Player(GameMechs* thisGMRef)
 
 
 
-}
+} 
 
 
 Player::~Player()
