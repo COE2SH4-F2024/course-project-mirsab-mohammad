@@ -52,7 +52,7 @@ class GameMechs
         // More methods should be added here
 
 //<<<<<<< HEAD
-        void generateFood(const objPos blockOff);
+        void generateFood(const objPosArrayList* playerList); //*changed this to accept playerlist as well
         objPos getFoodPos() const;
 
         char getBorderCharacter() const; // getter
@@ -62,7 +62,7 @@ class GameMechs
 
 
         void setGrowthFlag();
-        void getGrowthFlag() const;
+        bool getGrowthFlag() const;
         //^ setter and getter methods for grwoth flag (how we trackin growth?)
 
 

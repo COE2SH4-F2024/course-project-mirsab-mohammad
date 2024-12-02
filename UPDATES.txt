@@ -70,4 +70,7 @@ Gonna make my own little schedule that I'd like for us to follow but we ball, th
 
     dec1st (1pm) - I fixed the small issues with the food gen and the directions. PLEASE GO THROUGH THAT TOO I MADE SOME CHANGES I DON'T THINK WE LEARNED IN class
                     I used some code from an old project of mine that used similar random logic, I only fixxed ur syntax errors adn that small section on top, I also added the const back cuz we need it for a deep copy. (mirsab)
+
+    dec 2nd (noon) - made a whole bunch of changes. I changes a litttle bit of your logic ( not a whole lot really jsut re-wording is cuz I kept running into errors using some of the existing function so I made some easier ones to keep track of)
+                    - look around in project,player,andgamemech files all of the MOST RECENT COMMENTS WILL BE IN GREEN (if you downlaoded the color thing) if nto they will start with and asterisk *dksandklasndklasd...
     

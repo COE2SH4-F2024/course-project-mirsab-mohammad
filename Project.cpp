@@ -90,53 +90,83 @@ void GetInput(void)
 void RunLogic(void)
 {
     
-    player -> updatePlayerDir();
+    player -> updatePlayerDir();            //*same
 
-    player-> movePlayer();
+    player-> movePlayer();                  //*same
+
+    if (player->checkCollisionFood(gameMechs->getFoodPos())){           //*if we collide with food
+        gameMechs->incrementScore();                                    //*score up
+        player->grow();                                                 //*snake gorw
+        gameMechs->generateFood(player->getPlayerPos());                //*more food spawn
+
+    }
+    if(gameMechs->getLoseFlagStatus()){                                 //*if the lsoe flag status tru
+        gameMechs->setExitTrue();                                       //*leave
+    }
+
+    /*objPos head = player->getPlayerPos()->getHeadElement();
+    objPos food = gameMechs->getFoodPos();
+    if (head.isPosEqual(&food)){
+        gameMechs -> incrementScore();
+        gameMechs ->setGrowthFlag();
+        gameMechs->generateFood(head);
+    }
+
+    if (gameMechs->getLoseFlagStatus()){
+        gameMechs->setExitTrue();
+    }
 
     char input = gameMechs->getInput();
     if (input != 0){
         gameMechs->clearInput();
     }
+*/
+
 
 
 }
 
-void DrawScreen(void)
+void DrawScreen(void) {
 
-//^gonan cry if this doesen't work it should be easy but I'm spending so much time on this garbo.
-{
-    MacUILib_clearScreen();    
+    MacUILib_clearScreen();
+
     int sizeX = gameMechs->getBoardSizeX();
     int sizeY = gameMechs->getBoardSizeY();
 
-   
     for (int row = 0; row < sizeY; row++) {
 
         for (int column = 0; column < sizeX; column++) {
 
-            if (row == 0 || column == 0 || row == sizeY - 1 || column == sizeX - 1) { //^check for borders
+            if (row == 0 || column == 0 || row == sizeY - 1 || column == sizeX - 1) {           //*make borders
                 MacUILib_printf("#");
-            }
 
-            else if (row == player->getPlayerPos().pos->y && column == player->getPlayerPos().pos->x) { //^Check for player coords
-                MacUILib_printf("%c", player->getPlayerPos().getSymbol());
-            }
+            } else if (row == gameMechs->getFoodPos().pos->y && column == gameMechs->getFoodPos().pos->x) {
+                MacUILib_printf("%c", gameMechs->getFoodPos().getSymbol());                                         //*make food
 
-            else if (row == gameMechs->getFoodPos().pos->y && column == gameMechs->getFoodPos().pos->x){ //^check for food coords
-                MacUILib_printf("%c", gameMechs->getFoodPos().getSymbol());
-            }
+            } else {
+                bool drawn = false;
+                for (int i = 0; i < player->getPlayerPos()->getSize(); i++) {           //*draw body
+                    objPos temp = player->getPlayerPos()->getElement(i);
 
-            else {
-                MacUILib_printf(" "); //^everything else is blank
+                    if (row == temp.pos->y && column == temp.pos->x) {
+
+                        MacUILib_printf("%c", temp.getSymbol());
+                        drawn = true;
+                        break;
+                    }
+                }
+                if (!drawn) {
+                    MacUILib_printf(" ");           //*rest of board
+                }
             }
         }
-        MacUILib_printf("\n");  //^repeat
+        MacUILib_printf("\n");
     }
 
     printf("Click enter to exit");
-
 }
+
+//^cleaned up the mess of a draw screen function it was giving me bain aids
 
 
 

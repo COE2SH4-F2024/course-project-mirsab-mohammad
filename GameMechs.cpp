@@ -11,6 +11,7 @@ GameMechs::GameMechs()
     boardSizeX = 30;
     foodPos.setObjPos(-1,-1,'o');
     playerPosList = new objPosArrayList();
+    
 }
 
 GameMechs::GameMechs(int boardX, int boardY)
@@ -99,10 +100,57 @@ void GameMechs::clearInput()
 
 // More methods should be added here
 
-void GameMechs::generateFood(const objPos blockOff)
+
+//*big changes to generate food since it was giving me problesm
+//*screen froze and stuff when about to collect food. I think food was just spawning on top of the body causing an infinite loop or smthn so I just completely re did it using some logic we had before too.
+void GameMechs::generateFood(const objPosArrayList* playerList)
 {
 
-    static bool seeded = false;
+//* gonna explain line by line cuz its different-ish?
+
+    const int maxCoords = (boardSizeX - 2) * (boardSizeY - 2);                 //*same thign getting max size ofstuff just no longer useing blockoff... instead making board boarsize-2 so its jus the playing field.
+    objPos validPositions[maxCoords];                                           //*think ppa3. setting up an array with enough spaces for the entire gameplay area
+    int takenCounter = 0;                                   //*marks whats taken and not
+
+
+    for (int x = 1; x < boardSizeX - 1; ++x) {
+        for (int y = 1; y < boardSizeY - 1; ++y) {
+            objPos placedFood(x, y, 'o');
+            bool overlaps = false;
+
+            //*iterates through board
+
+            //*(under) checks for overlap with the snake when spawning food
+            for (int i = 0; i < playerList->getSize(); ++i) {
+                auto element = playerList->getElement(i);           //*Note I don't think we learned this in class but auto data-type lets C++ compiler check waht data type it is. I'm too alzy to find out what it rlly is so... (also named elelemtn cuz we getELement is called so ez to track)
+                if (placedFood.isPosEqual(&element)) {
+                    overlaps = true;
+                    break;
+                }
+            }
+
+           
+            if (!overlaps) {
+                validPositions[takenCounter++] = placedFood;  //*storing the free spaces in the array and incrementing onto the next index number.
+            }
+        }
+    }
+
+   //*we don't need this... but if someone fills up the entire board with the snake we just leacve the function. just an edge case I've seen in in previous snake games in hs
+    if (takenCounter == 0) {
+        return;
+    }
+
+ //*choosing a random spot from the tkane counter
+    int index = rand() % takenCounter;
+    foodPos = validPositions[index];  //*put food there
+}
+
+
+//*the gen food function literally makes sure we spawning on board, not overlapping, storing the validPositions, and then choosing one of those valid position to set the foodPos to. SIMEPL BUT KILELD ME
+//*using blockoff was giving me errors and crashing so I chanegd it to accept the playerlist
+
+    /*static bool seeded = false;
     if (!seeded){
         srand(static_cast<unsigned int>(time(nullptr)));
         seeded = true;
@@ -133,7 +181,7 @@ void GameMechs::generateFood(const objPos blockOff)
 
     }
     foodPos.setObjPos(x,y,'o');
-}
+    */
 
 
 //^leaving a comment if come here Mohammed
@@ -150,6 +198,6 @@ void GameMechs::setGrowthFlag(){
     growthFlag = true;
 }
 
-void GameMechs::getGrowthFlag()const{
+bool GameMechs::getGrowthFlag()const{
     return growthFlag;
 }

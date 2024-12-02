@@ -16,6 +16,9 @@ Player::Player(GameMechs* thisGMRef)
 
     //it3
     playerPosList = new objPosArrayList();
+    foodPosList = new objPosArrayList();
+
+    //*most recent comments for final iteration since I made a whole lota changes will be in green
 
     objPos headPos(thisGMRef->getBoardSizeX()/2,thisGMRef->getBoardSizeY()/2,'*');
     playerPosList->insertHead(headPos);
@@ -79,76 +82,122 @@ void Player::updatePlayerDir()
 
 }
 
+
+
+
 void Player::movePlayer()
 {
     // PPA3 Finite State Machine logic
 
     //commented out bcuz i replaced all x and y vals with currhead.x and .y
+///*fixed ur synta should be currhead.pos->y or x
     //int x = playerPos.pos->x;
     //int y = playerPos.pos->y;
 
-    int boardsizeX = mainGameMechsRef->getBoardSizeX(); //^both of these from game mech
-    int boardsizeY = mainGameMechsRef->getBoardSizeY();
-
+    
     //it3
-    objPos currentHead;
-    playerPosList-> getHeadElement(currentHead); // current head pos
+    objPos currentHead = playerPosList->getHeadElement(); // current head pos
+
 
     //^now to update each time the player moves (same as ppa3 just chaneg syntax):
     
     //replaced x and y with currhead.x and .y
     switch (myDir){
         case Dir::UP:
-        currentHead.y -= 1;
+        currentHead.pos->y -= 1;
         break;
         case Dir::DOWN:
-        currentHead.y += 1;
+        currentHead.pos->y += 1;
         break;
         case Dir::LEFT:
-        currentHead.x-=1;
+        currentHead.pos->x-=1;
         break;
         case Dir::RIGHT:
-        currentHead.x +=1;
+        currentHead.pos->x +=1;
         break;
         case Dir::STOP:
         default:
         return;
     }
 //^ gotta think of the wraparound a little differntly cuz of no height var so it's a bit diff
-    if (currentHead.y>=boardsizeY - 1){
-        currentHead.y=1;
+    int boardsizeX = mainGameMechsRef->getBoardSizeX(); //^both of these from game mech
+    int boardsizeY = mainGameMechsRef->getBoardSizeY();
+
+//*moved to keep track easier^
+
+
+    if (currentHead.pos->y>=boardsizeY - 1){
+        currentHead.pos->y=1;
     }
-    else if (currentHead.y<=0){
-        currentHead.y = boardsizeY-2;
+    else if (currentHead.pos->y<=0){
+        currentHead.pos->y = boardsizeY-2;
     }
 
-    if (currentHead.x>=boardsizeX -1){
-        currentHead.x  =1;
+    if (currentHead.pos->x>=boardsizeX -1){
+        currentHead.pos->x  =1;
     }
-    else if (currentHead.x<=0){
-        currentHead.x =boardsizeX-2;
+    else if (currentHead.pos->x<=0){
+        currentHead.pos->x = boardsizeX-2;
     } 
+
+
+//^ BE CAREFUL WITH CALLING THINGS you need an arrow operator not a dot operator.
+
 
     //playerPos.setObjPos(x,y,'*');
 
 //iter3 insert head
+
+
+
+    for (int i = 0; i < playerPosList->getSize();i++){  //*from 0 until we iterate thought size of snake
+        auto element = playerPosList->getElement(i);    //*elemnt = the elelmtns of the snake (iterated to fil every space the snaek it taking)
+        if (currentHead.isPosEqual(&element)){          //*check if the head overlaps with the body
+            mainGameMechsRef->setLoseFlag();            //* setloseflag.. c uz thats how we lose in snake
+            return;
+        }
+    }
+
+    playerPosList->insertHead(currentHead);         //*similar to waht you had just needed to change things a little so I was using plater stuff nto game mech cuz it was glitchy.
+    if (!growSnake) {
+        playerPosList->removeTail();
+    } else {
+        growSnake = false;
+
+        //*I had to chaneg this cuz using the growthflag in gamemech's was causing some serious glitches (freezing all the time my anti virus was acting up lol)
+        //* i made a new function to deal with it
+        //*similar logic to food gen
+
+
+    
+
+
+  /*objPos newHead(currentHead.pos->x,currentHead.pos->y,'*');
     playerPosList->insertHead(currentHead);
 
     //remove tail
+    if (!mainGameMechsRef->getGrowthFlag()){
     playerPosList->removeTail();
+    }
+    else{
+        mainGameMechsRef->setGrowthFlag(false);
+    }*/
+
+    
+}
+
 }
 
 // More methods to be added
 //added 4 u <3 muah
+//*merci ;) but i ended up making my own LOL
 
-bool player:: checkFoodConsumption() {
-
+void Player::grow(){
+    growSnake = true;
 }
 
-void increasePlayerLength() {
+bool Player::checkCollisionFood(const objPos& foodPos) {
 
-}
-
-bool checkSelfCollision() {
-
+    objPos head = playerPosList->getHeadElement();
+    return head.isPosEqual(&foodPos);
 }

@@ -28,9 +28,11 @@ class Player
 
         // added these for u
 
-        bool checkFoodConsumption();
-        void increasePlayerLength();
-        bool checkSelfCollision();
+        void grow();
+        bool checkCollisionFood(const objPos& foodPos);
+
+
+
 
     private:
         //objPos playerPos; // Upgrade this in iteration 3. 
@@ -39,6 +41,9 @@ class Player
 
         // Need a reference to the Main Game Mechanisms
         GameMechs* mainGameMechsRef;
+        objPosArrayList* foodPosList;
+        bool growSnake;
+        
 };
 
 #endif
