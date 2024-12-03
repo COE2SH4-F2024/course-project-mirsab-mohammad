@@ -106,6 +106,11 @@ void RunLogic(void)
         gameMechs->setExitTrue();                                       //*leave
     }
 
+
+    //=====================================================================================
+
+    //temporary comment in case we need it. Literaly re-wrote it just so I could understand what as happenig LMAO basically identical, just needed to re-trace me steps.
+
     /*objPos head = player->getPlayerPos()->getHeadElement();
     objPos food = gameMechs->getFoodPos();
     if (head.isPosEqual(&food)){
@@ -123,6 +128,9 @@ void RunLogic(void)
         gameMechs->clearInput();
     }
 */
+
+
+//==================================================================================================
 
 
 
@@ -168,7 +176,7 @@ void DrawScreen(void) {
     printf("Click enter to exit");
 }
 
-//^cleaned up the mess of a draw screen function it was giving me bain aids
+//^cleaned up the mess of a draw screen function it was giving me brain aids
 
 
 

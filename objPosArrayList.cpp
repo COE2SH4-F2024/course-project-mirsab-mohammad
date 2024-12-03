@@ -3,12 +3,7 @@
 
 // Check lecture contents on general purpose array list construction, 
 // and modify it to support objPos array list construction.
-
-/*
-^leaving this big chunk here this is all test and I have test cases so I can confirm then copy paste into actual project
-^the manual is my best friend here the visuals help a lot, refger to any of ur diagrams too on your ipad and stuff
-^ALSO READ THROUGH THE SKELETON CODE AND UNDERSTAND YOUR VARIABLES AND WHAT NOT SO YOU DON'T ALT TABB ALL THE TIME
-*/
+//^USE LECTURE CONTENT!!!
 
 
 
@@ -24,14 +19,13 @@ objPosArrayList::objPosArrayList()
 //^ Destructor
 objPosArrayList::~objPosArrayList()
 {
-delete[] aList; //^ FREE MA BOI
+delete[] aList; 
 
 }
 
 int objPosArrayList::getSize() const
 {
 return listSize;
-//^freebie
 }
 
 void objPosArrayList::insertHead(objPos thisPos)

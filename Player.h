@@ -27,6 +27,7 @@ class Player
         // More methods to be added here
 
         // added these for u
+        //*merci but added other ones lol
 
         void grow();
         bool checkCollisionFood(const objPos& foodPos);

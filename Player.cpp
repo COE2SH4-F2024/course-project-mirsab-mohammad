@@ -2,12 +2,6 @@
 #include "MacUILib.h"
 #include "GameMechs.h"
 
-/*
-^adding this for myself (mirsab)
-^ I need to 
-*/
-
-
 
 Player::Player(GameMechs* thisGMRef)
 {
@@ -23,7 +17,10 @@ Player::Player(GameMechs* thisGMRef)
     objPos headPos(thisGMRef->getBoardSizeX()/2,thisGMRef->getBoardSizeY()/2,'*');
     playerPosList->insertHead(headPos);
 
-    // more actions to be included
+//==============================================================================================
+//Old code commented out just in case we need to use it.
+// more actions to be included
+
     /*int boardWid = mainGameMechsRef->getBoardSizeX();
     int boardHei = mainGameMechsRef->getBoardSizeY();
 
@@ -31,6 +28,7 @@ Player::Player(GameMechs* thisGMRef)
     int starting_pos_y = boardHei/2;
 
     playerPos.setObjPos(starting_pos_x,starting_pos_y,'*');*/
+//==============================================================================================
 
 
 
@@ -53,14 +51,15 @@ objPosArrayList* Player::getPlayerPos() const
     // return the reference to the player objpos arrray list
     return playerPosList;
     // return playerpos
-    //^ easy?
+   
 }
 
 void Player::updatePlayerDir()
 {
         // PPA3 input processing logic          
+        //^ this gets the input (iteration 1b)
 
-        char input = mainGameMechsRef->getInput(); //^ this gets the input (iteration 1b)
+        char input = mainGameMechsRef->getInput(); 
 
         //^ just translate c --> c++ not too bad just hope I don't miss anything cuz my ppa3 is a mess, check each one making sure we aint going backwards and go that direction
 
@@ -120,7 +119,7 @@ void Player::movePlayer()
         default:
         return;
     }
-//^ gotta think of the wraparound a little differntly cuz of no height var so it's a bit diff
+
     int boardsizeX = mainGameMechsRef->getBoardSizeX(); //^both of these from game mech
     int boardsizeY = mainGameMechsRef->getBoardSizeY();
 
@@ -171,7 +170,9 @@ void Player::movePlayer()
 
 
     
+//=============================================================================================
 
+//* re wrote this section aboce cuz I was getting mad glitches, I just used ur logic but made some minor adjustments
 
   /*objPos newHead(currentHead.pos->x,currentHead.pos->y,'*');
     playerPosList->insertHead(currentHead);
@@ -184,6 +185,7 @@ void Player::movePlayer()
         mainGameMechsRef->setGrowthFlag(false);
     }*/
 
+//=============================================================================================
     
 }
 

@@ -51,19 +51,19 @@ class GameMechs
         
         // More methods should be added here
 
-//<<<<<<< HEAD
+
         void generateFood(const objPosArrayList* playerList); //*changed this to accept playerlist as well
         objPos getFoodPos() const;
 
         char getBorderCharacter() const; // getter
         void setBorderCharacter(char c); // setter for it
-        //^ADDED A COUPEL TO MAKE DRAW SCREEN MORE MODULE
-//>>>>>>> 1ae6bd396d44ee186850493062aa387c465833d9
+        //^added these to make it more module
 
 
-        void setGrowthFlag();
-        bool getGrowthFlag() const;
-        //^ setter and getter methods for grwoth flag (how we trackin growth?)
+
+        void setGrowthFlag();//setter
+        bool getGrowthFlag() const; //getter
+        //^ I had issues with this so I think I used the player class one for a good chunk-ish.
 
 
 
