@@ -27,8 +27,6 @@ Setup Instructions
 
 -After building, run the generated executable file to start playing.
 
-Section: [L08]
-ss
 ------------------------------------------------------------------------
 
 -------------------------------------------------------------------------
