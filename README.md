@@ -6,8 +6,11 @@ How to Play
 Control the snake using the following keys:
 
 W: Move Up
+
 A: Move Left
+
 S: Move Down
+
 D: Move Right
 
 Objective
